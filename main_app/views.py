@@ -13,7 +13,7 @@ def dogs_index(request):
     dogs = Dog.objects.all()
     return render(request, 'dogs/index.html', { 'dogs': dogs })
 
-def dogs_detail(request, cat_id):
+def dogs_detail(request, dog_id):
   dog = Dog.objects.get(id=dog_id)
   toys_dog_doesnt_have = Toy.objects.exclude(id__in = dog.toys.all().values_list('id'))
   feeding_form = FeedingForm()
