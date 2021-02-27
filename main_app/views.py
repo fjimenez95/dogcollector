@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Dog
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Dog, Toy
 from .forms import FeedingForm
 
 def home(request):
-    return HttpResponse('<h1> Hello</h1>')
+    pass
 
 def about(request):
     return render(request, 'about.html')
@@ -21,3 +21,11 @@ def dogs_detail(request, dog_id):
     'dog': dog, 'feeding_form': feeding_form,
     'available_toys': toys_dog_doesnt_have,
   })
+
+class DogCreate(CreateView):
+    model = Dog
+    fields = ['name', 'breed', 'description', 'age']
+
+class DogUpdate(UpdateView):
+    model = Dog
+    fields = ['breed', 'description', 'age']
