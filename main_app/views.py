@@ -29,3 +29,7 @@ class DogCreate(CreateView):
 class DogUpdate(UpdateView):
     model = Dog
     fields = ['breed', 'description', 'age']
+
+class DogDelete(DeleteView):
+    model = Dog
+    success_url = '/dogs/'
