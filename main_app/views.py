@@ -4,7 +4,7 @@ from .models import Dog, Toy
 from .forms import FeedingForm
 
 def home(request):
-    pass
+    return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')
